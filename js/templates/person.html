@@ -1,0 +1,21 @@
+<div class="col-sm-12 registrant-table">
+	<table class="mdl-data-table mdl-js-data-table" ng-if="registrants.totalRegistrants > 0">
+	  <thead>
+	    <tr>
+	      <th class="mdl-data-table__cell--non-numeric">Has Value</th>
+	      <th class="mdl-data-table__cell--non-numeric">Field ID</th>
+	      <th>Sample Value</th>
+	    </tr>
+	  </thead>
+	  <tbody> 
+	    <tr ng-repeat="field in registrants.currentReg.fieldValues track by $index">
+	    	<td>	    		
+				<i class="material-icons" ng-if="registrants.fields[$index].hasValue">done</i>
+	    	</td>
+	    	<td class="text-left">{{ field.id }}</td>
+	    	<td class="mdl-data-table__cell--non-numeric">{{ field.value }}</td>
+	    </tr>
+	  </tbody>
+	</table>
+	<h6 class="text-center" ng-if="registrants.totalRegistrants === 0">Uh-Oh!<br />Please return to settings and <a href="#" ui-sref="settings">try again</a>.</h6>
+</div>
